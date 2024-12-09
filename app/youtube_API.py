@@ -5,6 +5,7 @@ import os
 import pandas as pd
 from datetime import datetime
 import requests
+import data_treat
 
 #acessando a chave da api
 load_dotenv()
@@ -25,6 +26,7 @@ def get_ApiResponse():
     comments=[]
     titles=[]
     published_dates=[]
+    duration=[]
 
     try:   
         #resposta API
@@ -36,8 +38,9 @@ def get_ApiResponse():
         )
         #estatisticas dos videos
         for video in video_ids_tittles.keys():
-            res = youtube.videos().list(part='statistics', id=video).execute()
-            stats += res['items']
+            res = youtube.videos().list(part=['statistics','contentDetails'], id=video).execute()
+            stats += (res['items'])
+
         #separando as estatisticas e informações
         for video in stats:
             titles.append(video_ids_tittles[video['id']]['title'])
@@ -45,6 +48,9 @@ def get_ApiResponse():
             views.append(video['statistics']['viewCount'])
             likes.append(video['statistics']['likeCount'])
             comments.append(video['statistics']['commentCount'])
+            duration.append(video['contentDetails']['duration'])
+
+    
         #transformando em um dataframe
         df = pd.DataFrame({
             'title': titles,
@@ -52,11 +58,13 @@ def get_ApiResponse():
             'extraction_date': None,
             'views' : views,
             'likes' : likes,
-            'comments' : comments
+            'comments' : comments,
+            'duration': duration
             })
         df['extraction_date'] = str(datetime.now())
+
         #tratar os dados
-        return treat_df(df)
+        return data_treat.treat_df(df)
 
     except HttpError as e:
         print(f"Erro HTTP: {e}")
@@ -64,11 +72,4 @@ def get_ApiResponse():
     except requests.ConnectionError:
         print("Erro de conexão: Sem acesso à internet.")
 
-def treat_df(df):
-    df = df.sort_values(by='published_date')
-    df['order'] = df.index
-    #corrgindo tipo de dado das coluna
-    df["views"] = pd.to_numeric(df["views"])
-    df["likes"] = pd.to_numeric(df["likes"])
-    df["comments"] = pd.to_numeric(df["comments"])
-    return df
+df = get_ApiResponse()
