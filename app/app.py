@@ -1,6 +1,4 @@
 from dash import Dash
-import pandas as pd
-import plotly.express as px
 from layout import layout
 
 app = Dash(__name__)
