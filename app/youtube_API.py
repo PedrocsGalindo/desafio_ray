@@ -45,7 +45,7 @@ def get_ApiResponse():
             views.append(video['statistics']['viewCount'])
             likes.append(video['statistics']['likeCount'])
             comments.append(video['statistics']['commentCount'])
-
+        #transformando em um dataframe
         df = pd.DataFrame({
             'title': titles,
             'published_date' : published_dates,
@@ -55,11 +55,16 @@ def get_ApiResponse():
             'comments' : comments
             })
         df['extraction_date'] = str(datetime.now())
-
-        return df
+        #tratar os dados
+        return treat_df(df)
 
     except HttpError as e:
         print(f"Erro HTTP: {e}")
 
     except requests.ConnectionError:
         print("Erro de conexão: Sem acesso à internet.")
+
+def treat_df(df):
+    df = df.sort_values(by='published_date')
+    df['order'] = df.index
+    return df
