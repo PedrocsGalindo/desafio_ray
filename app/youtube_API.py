@@ -67,4 +67,8 @@ def get_ApiResponse():
 def treat_df(df):
     df = df.sort_values(by='published_date')
     df['order'] = df.index
+    #corrgindo tipo de dado das coluna
+    df["views"] = pd.to_numeric(df["views"])
+    df["likes"] = pd.to_numeric(df["likes"])
+    df["comments"] = pd.to_numeric(df["comments"])
     return df
