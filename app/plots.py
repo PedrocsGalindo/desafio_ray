@@ -5,14 +5,13 @@ import data_manager
 df = data_manager.get_playlistInfo()
 
 #metrica de engajamento likes+coments/views
-#df['engagement'] = (df["likes"]+df["comments"])/df["views"]
-
-print(df["views"])
+df_engajamento = pd.DataFrame()
+df_engajamento['engagement'] = (df["likes"]+df["comments"])/df["views"]
+df_engajamento['title'] = df['title']
+df_engajamento = df_engajamento.sort_values(by='engagement')
 
 #matriz de correalação entre view, likes e comentarios
 matriz_corr = df[['comments', 'likes', 'views']].corr()
-
-
 
 # grafico de linha da media de view, likes e comentarios
 window_size = 3
