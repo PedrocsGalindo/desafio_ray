@@ -30,7 +30,7 @@ def get_playlistInfo():
         save_playlistInfo(df=df)
         return df
     
- 
-    
-df = get_playlistInfo()
-print(df)
+def att_info():
+    df = youtube_API.get_ApiResponse()
+    save_playlistInfo(df=df)
+    return df
