@@ -1,8 +1,15 @@
 import pandas as pd
+from datetime import datetime
 
 def treat_df(df):
+    #Tranforma em objeto datatime, mas no final tera que tranforamr em string de novo por conta do Json
+    df['published_dates'] = pd.to_datetime(df['published_dates'])
+
+    #ordem baseado na data de postagem
     df = df.sort_values(by='published_dates')
+    df.index = range(len(df))
     df['order'] = df.index
+
     #corrgindo tipo de dado das coluna
     df["views"] = pd.to_numeric(df["views"])
     df["likes"] = pd.to_numeric(df["likes"])
@@ -32,7 +39,15 @@ def treat_df(df):
     df['relevances'] = df['views'] + df['likes'] + df['comments']
 
     #Coluna de periodo (inicio, meio ou fim da temporada)
+    interval = int(len(df) / 3)
+    df['periods'] = None
+
+    df.loc[:interval, 'periods'] = 'begin'
+    df.loc[interval:interval*2, 'periods'] = 'middle'
+    df.loc[interval*2:, 'periods'] = 'end'
     
+    
+    df['published_dates'] = df['published_dates'].apply(str)
 
     return df
 

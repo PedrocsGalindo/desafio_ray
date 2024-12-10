@@ -45,8 +45,9 @@
 ## Decisões Técnicas
 
 1. **Plotagem de Crescimento:**
-   - Focou-se em uma visualização que demonstrasse a tendência de crescimento ou declínio das estatísticas ao longo do tempo.
+   - Foi priorizada uma visualização que evidenciasse a tendência de crescimento ou declínio das estatísticas ao longo do tempo, permitindo uma análise clara e direta dos dados.
    - Optou-se por gráficos de média móvel para facilitar a compreensão, descartando séries temporais não tratadas.
+   - Vídeos com menos de um mês de publicação foram excluídos da análise. Essa decisão visou mitigar o impacto da curta janela temporal, que naturalmente resultaria em métricas subestimadas, assegurando que os dados refletissem tendências reais de desempenho.
 
 2. **Análise de Correlações:**
    - Buscou-se identificar correlações entre variáveis (data, visualizações, curtidas, comentários e duração dos vídeos).

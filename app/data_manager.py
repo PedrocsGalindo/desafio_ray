@@ -19,16 +19,16 @@ def get_playlistInfo():
             df = pd.DataFrame(objJson)
             if df.empty:
                 raise ValueError("O DataFrame está vazio.")
-            else:
-                return df
+
     except FileNotFoundError as e:
         df = youtube_API.get_ApiResponse()
         save_playlistInfo(df=df)
-        return df
+
     except ValueError as e:
         df = youtube_API.get_ApiResponse()
         save_playlistInfo(df=df)
-        return df
+
+    return df
     
 def att_info():
     df = youtube_API.get_ApiResponse()

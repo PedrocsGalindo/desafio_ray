@@ -30,7 +30,7 @@ def get_ApiResponse():
 
     try:   
         #resposta API
-        res = youtube.playlistItems().list(part='snippet', playlistId=playlist_id, maxResults=23).execute()
+        res = youtube.playlistItems().list(part='snippet', playlistId=playlist_id, maxResults=30).execute()
         playlist_videos = res['items']
         #titulos e ids dos videos
         video_ids_tittles = dict(
@@ -61,7 +61,7 @@ def get_ApiResponse():
             'comments' : comments,
             'durations': duration
             })
-        df['extraction_date'] = str(datetime.now())
+        df['extraction_dates'] = str(datetime.now())
 
         #tratar os dados
         return data_treat.treat_df(df)

@@ -1,6 +1,7 @@
 import pandas as pd
 import plotly.graph_objects as go
 import data_manager
+from datetime import datetime, timezone
 
 df = data_manager.get_playlistInfo()
 
@@ -29,10 +30,17 @@ def change_fig_bar(columns):
 matriz_corr = df[['comments', 'likes', 'views']].corr()
 
 #grafico de linha da media de view, likes e comentarios
+df_mean = df[['comments_moving_avg', 'likes_moving_avg', 'views_moving_avg', 'order']]
+df_mean['published_dates'] = pd.to_datetime(df['published_dates'])
+print(df_mean['published_dates'])
+print(datetime.now())
+df_mean['posting_time'] = (datetime.now(timezone.utc) - df_mean['published_dates']).dt.days
+df_mean = df_mean[df_mean['posting_time'] >= 30]
+
 fig_moving_avg = go.Figure()
 fig_moving_avg.add_trace(go.Scatter(
-    x=df['order'],  
-    y=df['views_moving_avg'],
+    x=df_mean['order'],  
+    y=df_mean['views_moving_avg'],
     mode="lines+markers",                          
     name="Vizualizações"                                  
 ))
@@ -42,6 +50,6 @@ fig_moving_avg.update_layout(
 )
 def change_fig_moving(columns):
     columns = columns +'_moving_avg'
-    fig_moving_avg.data[-1].y = df[columns]
+    fig_moving_avg.data[-1].y = df_mean[columns]
     return fig_moving_avg
 
