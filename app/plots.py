@@ -4,6 +4,7 @@ import data_manager
 from datetime import datetime, timezone
 
 df = data_manager.get_playlistInfo()
+dicionario_cores = {'views' : 'yellow', 'likes' : 'red', 'comments': 'blue'}
 
 #grafico de barras com top 5 com mais engajamento
 df_plot_engagement = df[['places','views','likes','comments', 'engagements']].copy()
@@ -23,6 +24,7 @@ fig_bar_top_engagement.update_layout(
 
 def change_fig_bar(columns):
     fig_bar_top_engagement.data[-1].x = df[columns]
+    fig_bar_top_engagement.data[0].marker.color = dicionario_cores[columns]
     return fig_bar_top_engagement
 
 #grafico de barras com os estatisticas da temporada
