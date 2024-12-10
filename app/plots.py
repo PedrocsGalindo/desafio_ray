@@ -4,6 +4,8 @@ import data_manager
 
 df = data_manager.get_playlistInfo()
 
+print(df[['relevances', 'places']])
+
 #grafico de barras com top 5 com mais engajamento
 df_plot_engagement = df[['places','views','likes','comments', 'engagements']].copy()
 df_plot_engagement = df_plot_engagement.sort_values(by='engagements', ascending=False)

@@ -56,7 +56,9 @@
    - Desenvolve-se uma métrica para identificar os vídeos mais impactantes:
      Engajamento = (Curtidas + Comentários) / Visualizações
    - Essa abordagem destacou os vídeos com maior engajamento.
-
+4. **Métrica de Relevancia:**
+    -Idealizou-se uma nova métrica para identificar os vídeos mais relevantes:
+      Relevancia = soma Curtidas, Comentários, Visualizações. Em que todos os elementos estão normalizados (minimo e maximo)
 ---
 
 ## Recursos Utilizados

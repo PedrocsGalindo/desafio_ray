@@ -23,6 +23,14 @@ def treat_df(df):
     df['places'] = df['titles'].replace(r'Race Highlights \| 2024 ', '', regex=True)
     df['places'] = df['places'].str.replace(r' Grand Prix', '', regex=True)
 
+    #Colunas normalizadas
+    df['normalized_views'] = (df['views'] - df['views'].min()) / (df['views'].max() - df['views'].min())
+    df['normalized_likes'] = (df['likes'] - df['likes'].min()) / (df['likes'].max() - df['likes'].min())
+    df['normalized_comments'] = (df['comments'] - df['comments'].min()) / (df['comments'].max() - df['comments'].min())
+
+    #Coluna de Relevancia
+    df['relevances'] = df['views'] + df['likes'] + df['comments']
+
     return df
 
 def to_seconds(string):
