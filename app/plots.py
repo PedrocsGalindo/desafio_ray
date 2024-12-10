@@ -82,3 +82,24 @@ def change_fig_moving(columns):
     fig_moving_avg.data[-1].y = df_mean[columns]
     return fig_moving_avg
 
+#variaveis de KPIs
+dict_func = {
+    'mean': pd.Series.mean,
+    'max' : pd.Series.max,
+    'min' : pd.Series.min,
+    'sum' : pd.Series.sum
+}
+def kpis(column, func = 'mean'):
+    if column == 'duration':
+        value = int(dict_func[func](df[column]))
+        return str(int(value/60)) + " minutos e " + str(value % 60) + " segundos"
+    else:
+        return int(dict_func[func](df[column]))
+
+
+    
+
+mean_view = int(df['views'].mean())
+mean_like = int(df['likes'].mean())
+mean_comment = int(df['comments'].mean())
+mean_duration = int(df['durations'].mean())
