@@ -25,6 +25,35 @@ def change_fig_bar(columns):
     fig_bar_top_engagement.data[-1].x = df[columns]
     return fig_bar_top_engagement
 
+#grafico de barras com os estatisticas da temporada
+df_top_periods = df[['normalized_comments', 'normalized_likes', 'normalized_views','periods']].copy()
+df_top_periods = df_top_periods.groupby('periods').sum()
+row_to_move = df_top_periods.loc['end']
+df_top_periods = df_top_periods.drop(index='end')
+df_top_periods.loc['end'] = row_to_move
+
+fig_bar_periods = go.Figure()
+fig_bar_periods.add_trace(go.Bar(
+    x=df_top_periods.index,
+    y=df_top_periods['normalized_views'],
+    marker_color='yellow',
+    name="Vizualizações" 
+))
+fig_bar_periods.add_trace(go.Bar(
+    x=df_top_periods.index,
+    y=df_top_periods['normalized_likes'],
+    marker_color='red',
+    name="Curtidas" 
+))
+fig_bar_periods.add_trace(go.Bar(
+    x=df_top_periods.index,
+    y=df_top_periods['normalized_comments'],
+    marker_color='blue',
+    name="Comentarios" 
+))
+fig_bar_periods.update_layout(
+    title='Ao longo da Temporada',
+)
 
 #matriz de correalação entre view, likes e comentarios
 matriz_corr = df[['comments', 'likes', 'views']].corr()
