@@ -36,8 +36,9 @@
 4. **Execução do Projeto:**
    - Execute o script principal para iniciar o dashboard:
      ```bash
-     python main.py
+     python app.py
      ```
+   - Acesse o link que aparece no teminal
 
 ---
 
