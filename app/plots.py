@@ -29,11 +29,9 @@ def change_fig_bar(columns):
 #matriz de correalação entre view, likes e comentarios
 matriz_corr = df[['comments', 'likes', 'views']].corr()
 
-#grafico de linha da media de view, likes e comentarios
-df_mean = df[['comments_moving_avg', 'likes_moving_avg', 'views_moving_avg', 'order']]
-df_mean['published_dates'] = pd.to_datetime(df['published_dates'])
-print(df_mean['published_dates'])
-print(datetime.now())
+#grafico de linha da media de view, likes e comentarios (necessario 30 dias)
+df_mean = df[['comments_moving_avg', 'likes_moving_avg', 'views_moving_avg', 'order', 'published_dates']].copy()
+df_mean['published_dates'] = pd.to_datetime(df_mean['published_dates'])
 df_mean['posting_time'] = (datetime.now(timezone.utc) - df_mean['published_dates']).dt.days
 df_mean = df_mean[df_mean['posting_time'] >= 30]
 
