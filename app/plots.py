@@ -101,10 +101,3 @@ def kpis(column, func = 'mean'):
         local = local.iloc[0]
         answer = local +":" + answer
     return answer
-
-
-
-mean_view = int(df['views'].mean())
-mean_like = int(df['likes'].mean())
-mean_comment = int(df['comments'].mean())
-mean_duration = int(df['durations'].mean())
