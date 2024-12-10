@@ -1,5 +1,6 @@
 from dash import Dash
 from layout import layout
+import callbacks
 
 app = Dash(__name__)
 
