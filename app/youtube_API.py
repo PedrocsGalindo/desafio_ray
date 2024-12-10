@@ -53,13 +53,13 @@ def get_ApiResponse():
     
         #transformando em um dataframe
         df = pd.DataFrame({
-            'title': titles,
-            'published_date' : published_dates,
-            'extraction_date': None,
+            'titles': titles,
+            'published_dates' : published_dates,
+            'extraction_dates': None,
             'views' : views,
             'likes' : likes,
             'comments' : comments,
-            'duration': duration
+            'durations': duration
             })
         df['extraction_date'] = str(datetime.now())
 

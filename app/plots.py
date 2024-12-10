@@ -4,14 +4,21 @@ import data_manager
 
 df = data_manager.get_playlistInfo()
 
-#metrica de engajamento likes+coments/views
-df_engagement = pd.DataFrame()
-df_engagement['engagement'] = df['engagement']
-df_engagement['title'] = df['title'].replace(r'Race Highlights \| 2024 ', '', regex=True)
-df_engagement['title'] = df_engagement['title'].str.replace(r' Grand Prix', '', regex=True)
-df_engagement = df_engagement.sort_values(by='engagement')
+#grafico de barras com top 5 com mais engajamento
+df_plot_engagement = df[['places','views','likes','comments', 'engagements']].copy()
+df_plot_engagement = df_plot_engagement.sort_values(by='engagements', ascending=False)
+df_plot_engagement = df_plot_engagement[:5]
+fig_bar_top_engagement = go.Figure()
 
-top_five_engagement = list(df_engagement['title'].tail(5))
+fig_bar_top_engagement.add_trace(go.Bar(
+    y=df_plot_engagement['places'],
+    x=df_plot_engagement['views'],
+    marker_color='blue',
+    orientation='h'
+))
+fig_bar_top_engagement.update_layout(
+    title='Top 5 Engajamentos',
+)
 
 #matriz de correalação entre view, likes e comentarios
 matriz_corr = df[['comments', 'likes', 'views']].corr()
@@ -28,3 +35,4 @@ fig_moving_avg.update_layout(
     title="Media",
     xaxis_title="Tempo",
 )
+

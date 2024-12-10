@@ -17,8 +17,8 @@ def update_output(n_clicks):
 
 #mudar a view do grafico de linha
 @callback(
-    Output('grafico-multiplas-linhas', 'figure'),
-    Input('lista_medias', 'value')
+    Output('graph_mult_lines', 'figure'),
+    Input('list_means', 'value')
 )
 def change_view(value):
     df = data_manager.get_playlistInfo()

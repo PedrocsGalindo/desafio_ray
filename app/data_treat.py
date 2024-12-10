@@ -1,13 +1,13 @@
 import pandas as pd
 
 def treat_df(df):
-    df = df.sort_values(by='published_date')
+    df = df.sort_values(by='published_dates')
     df['order'] = df.index
     #corrgindo tipo de dado das coluna
     df["views"] = pd.to_numeric(df["views"])
     df["likes"] = pd.to_numeric(df["likes"])
     df["comments"] = pd.to_numeric(df["comments"])
-    df['duration'] = df['duration'].apply(to_seconds)
+    df['durations'] = df['durations'].apply(to_seconds)
 
     #Colunas de media movel
     window_size = 3
@@ -17,7 +17,11 @@ def treat_df(df):
     df["views_moving_avg"] = df["views"].rolling(window=window_size, min_periods=min_window_size).mean()
 
     #Coluna de engajamento likes+coments/views
-    df['engagement'] = (df["likes"]+df["comments"])/df["views"]
+    df['engagements'] = (df["likes"]+df["comments"])/df["views"]
+
+    #Coluna de locais
+    df['places'] = df['titles'].replace(r'Race Highlights \| 2024 ', '', regex=True)
+    df['places'] = df['places'].str.replace(r' Grand Prix', '', regex=True)
 
     return df
 
