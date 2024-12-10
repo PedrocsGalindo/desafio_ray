@@ -1,0 +1,56 @@
+.title {
+    font-family: Georgia, serif;  
+    font-size: 3em;         
+    color: #333;                
+    text-align: center;          
+
+    letter-spacing: 2px;      
+    border-bottom: 3px solid #FF4500; 
+    padding-bottom: 10px;      
+    margin: 30px 0; 
+}
+.div {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    margin: auto;
+}
+.btn {
+    border: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 1em; /* Tamanho da fonte */
+    color: #fff;
+    background: #e74c3c; /* Cor do botão */
+    cursor: pointer;
+    padding: 5px 20px; /* Reduz o espaçamento interno */
+    display: inline-block;
+    margin: 10px 30px 10px auto; /* Espaço automático para empurrar o botão para a direita */
+    text-transform: uppercase;
+    letter-spacing: 0.5px; /* Espaçamento entre letras */
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    transition: all 0.3s ease; /* Transição suave */
+    border-radius: 5px; /* Bordas arredondadas */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+.btn:hover {
+    background: #c0392b; 
+}
+
+.btn:active {
+    background: #a8322a;
+    top: 1px; 
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); 
+}
+
+.btn:before {
+    content: '\f05a';
+    font-family: 'FontAwesome';
+    font-size: 1em; 
+    margin-right: 5px; 
+    position: relative;
+    vertical-align: middle;
+}
