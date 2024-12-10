@@ -21,30 +21,51 @@ layout = html.Div(children=[
         html.Div(children=[
             html.Div(children=[
                 dcc.Dropdown(['views', 'likes', 'comments'], value = 'views', id='list_means', className='dropdown',),
-            dcc.Graph(id="graph_mult_lines", figure=plots.fig_moving_avg)
-            ], style={"flex": "1", "padding": "10px"}),
-            html.Div(children=[
-                html.H2(children="KPI's", className=' title subtitle'),
+                dcc.Graph(id="graph_mult_lines", figure=plots.fig_moving_avg)
+                ],
+                style={"flex": "1", "padding": "10px"}),
+            html.Div(children = [
                 html.Div(children=[
-                    html.Div(children=[
-                        html.H3(children="vizualizações", className=' title subtitle minsubtitle'),
-                        html.P(children=plots.kpis('views'))
-                    ], className='center'),
-                    html.Div(children=[
-                        html.H3(children="curtidas", className=' title subtitle minsubtitle'),
-                        html.P(children=plots.kpis('likes'))
-                    ], className='center'),
-                    html.Div(children=[
-                        html.H3(children="comentarios", className=' title subtitle minsubtitle'),
-                        html.P(children=plots.kpis('comments'))
-                    ], className='center'),
-                    html.Div(children=[
-                        html.H3(children="Duração", className=' title subtitle minsubtitle'),
-                        html.P(children=plots.kpis('durations'))
-                    ], className='center'),
-                ], className='div midrow')
-            ], className='grid-container grid_max_width')
+                    html.H2(children="KPI's", className=' title subtitle'),
 
+                    html.Div(children=[
+                        html.Div(children=[
+                            html.H3(children="vizualizações", className=' title subtitle minsubtitle'),
+                            html.P(children=plots.kpis('views'), id='kpis_views')
+                        ], className='center'),
+                        html.Div(children=[
+                            html.H3(children="curtidas", className=' title subtitle minsubtitle'),
+                            html.P(children=plots.kpis('likes'), id='kpis_likes')
+                        ], className='center'),
+                        html.Div(children=[
+                            html.H3(children="comentarios", className=' title subtitle minsubtitle'),
+                            html.P(children=plots.kpis('comments'), id='kpis_comments')
+                        ], className='center'),
+                        html.Div(children=[
+                            html.H3(children="Duração", className=' title subtitle minsubtitle'),
+                            html.P(children=plots.kpis('durations'), id='kpis_durations')
+                        ], className='center'),
+                    ], className='div mid_row'),
+
+                    html.Div(children=[
+                        dcc.RadioItems(id='radio_options_kpis', options=[
+                            {"label": "Media", "value": "mean"},
+                            {"label": "Maior", "value": "max"},
+                            {"label": "Menor", "value": "min"},
+                            {"label": "Soma", "value": "sum"}], 
+                            value="mean", 
+                            labelStyle={"display": "inline-block", "margin-right": "15px"}
+                        ),],
+                        style = {
+                                "display": "flex",
+                                "gap": "10px",
+                                'justify-content': 'center', 
+                                'align-items': 'center'
+                        }
+                    )
+                ], className='grid-container grid_max_width'
+                )
+            ], className='grid_padding center')
         ],style={"flex": "1", "padding": "10px"},className='div')
         
     ])

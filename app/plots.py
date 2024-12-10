@@ -90,14 +90,19 @@ dict_func = {
     'sum' : pd.Series.sum
 }
 def kpis(column, func = 'mean'):
-    if column == 'duration':
+    if column == 'durations':
         value = int(dict_func[func](df[column]))
-        return str(int(value/60)) + " minutos e " + str(value % 60) + " segundos"
+        answer = str(int(value/60)) + " min " + str(value % 60) + " seg"
     else:
-        return int(dict_func[func](df[column]))
+        value = int(dict_func[func](df[column]))
+        answer = str(int(value/1000)) + 'mil'
+    if func == 'max' or func == 'min':
+        local = df.loc[df[column] == value, 'places']
+        local = local.iloc[0]
+        answer = local +":" + answer
+    return answer
 
 
-    
 
 mean_view = int(df['views'].mean())
 mean_like = int(df['likes'].mean())

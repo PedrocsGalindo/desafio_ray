@@ -27,21 +27,21 @@
 .btn {
     border: none;
     font-family: 'Lato', sans-serif;
-    font-size: 1em; /* Tamanho da fonte */
+    font-size: 1em; 
     color: #fff;
-    background: #e74c3c; /* Cor do botão */
+    background: #e74c3c; 
     cursor: pointer;
-    padding: 5px 20px; /* Reduz o espaçamento interno */
+    padding: 5px 20px; 
     display: inline-block;
-    margin: 10px 30px 10px auto; /* Espaço automático para empurrar o botão para a direita */
+    margin: 10px 30px 10px auto; 
     text-transform: uppercase;
-    letter-spacing: 0.5px; /* Espaçamento entre letras */
+    letter-spacing: 0.5px; 
     font-weight: 700;
     outline: none;
     position: relative;
-    transition: all 0.3s ease; /* Transição suave */
-    border-radius: 5px; /* Bordas arredondadas */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: all 0.3s ease; 
+    border-radius: 5px; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
 }
 
 .btn:hover {
@@ -69,20 +69,25 @@
 }
 .grid-container {
     display: grid;
-    grid-template-rows: 25% 50% 25%;  
+    grid-template-rows: 30% 40% 30%;  
     gap: 5px; 
-    margin: 0 40px 0 15px;
+    margin: 0 40px 0 0;
     border: 2px  solid #333; 
 }
-.grid_max_width{
-    max-width: 100vw;
+.grid_padding{
+    padding: 10px 0;
+
 }
-.midrow{
-    margin: 0 10px;
+.grid_max_height{
+    max-height: 10%
+}
+.mid_row{
+    margin: 10px;
+    border: 0 2px 2px 0 solid #333;
 }
 .center {
     display: flex;
     flex-direction: column; 
     justify-content: center; 
-    align-items: center;    
+    align-items: center;
 }

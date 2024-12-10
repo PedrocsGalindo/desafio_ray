@@ -32,3 +32,29 @@ def change_view(value):
 def change_view(value):
     fig_bar_top_engagement = plots.change_fig_bar(value)
     return fig_bar_top_engagement
+
+#mudar o calculo da KPIs
+@callback(
+    Output('kpis_durations', 'children'),
+    Input('radio_options_kpis', 'value')
+)
+def change_kpis(value):
+    return plots.kpis('durations', func=value)
+@callback(
+    Output('kpis_comments', 'children'),
+    Input('radio_options_kpis', 'value')
+)
+def change_kpis(value):
+    return plots.kpis('comments', func=value)
+@callback(
+    Output('kpis_likes', 'children'),
+    Input('radio_options_kpis', 'value')
+)
+def change_kpis(value):
+    return plots.kpis('likes', func=value)
+@callback(
+    Output('kpis_views', 'children'),
+    Input('radio_options_kpis', 'value')
+)
+def change_kpis(value):
+    return plots.kpis('views', func=value)

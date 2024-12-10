@@ -51,7 +51,7 @@
 
 2. **Análise de Correlações:**
    - Buscou-se identificar correlações entre variáveis (data, visualizações, curtidas, comentários e duração dos vídeos).
-   - Nenhuma correlação significativa foi encontrada, o que redirecionou o foco da análise.
+   - Nenhuma correlação significativa foi encontrada além da relação intuitiva entre view e curtidas, o que redirecionou o foco da análise.
 
 3. **Métrica de Engajamento:**
    - Desenvolve-se uma métrica para identificar os vídeos mais impactantes:
