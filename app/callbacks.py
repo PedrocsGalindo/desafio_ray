@@ -21,10 +21,9 @@ def update_output(n_clicks):
     Input('list_means', 'value')
 )
 def change_view(value):
-    df = data_manager.get_playlistInfo()
-    value = value +'_moving_avg'
-    plots.fig_moving_avg.data[-1].y = df[value]
-    return plots.fig_moving_avg
+    fig_moving_avg = plots.change_fig_moving(value)
+    return fig_moving_avg
+
 #mudar a view do grafico de barras
 @callback(
     Output('graph_bars_top_engagement', 'figure'),
@@ -32,4 +31,4 @@ def change_view(value):
 )
 def change_view(value):
     fig_bar_top_engagement = plots.change_fig_bar(value)
-    return plots.fig_bar_top_engagement
+    return fig_bar_top_engagement

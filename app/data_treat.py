@@ -31,6 +31,9 @@ def treat_df(df):
     #Coluna de Relevancia
     df['relevances'] = df['views'] + df['likes'] + df['comments']
 
+    #Coluna de periodo (inicio, meio ou fim da temporada)
+    
+
     return df
 
 def to_seconds(string):

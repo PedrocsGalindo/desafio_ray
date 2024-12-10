@@ -10,9 +10,6 @@ layout = html.Div(children=[
         dcc.Graph(id="graph_bars_top_engagement",figure=plots.fig_bar_top_engagement),
 
         dcc.Dropdown(['views', 'likes', 'comments'], value = 'views', id='list_means'),
-        dcc.Graph(
-        id="graph_mult_lines",
-        figure=plots.fig_moving_avg
-        )
+        dcc.Graph(id="graph_mult_lines", figure=plots.fig_moving_avg)
     ])
 ])

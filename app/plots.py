@@ -4,8 +4,6 @@ import data_manager
 
 df = data_manager.get_playlistInfo()
 
-print(df[['relevances', 'places']])
-
 #grafico de barras com top 5 com mais engajamento
 df_plot_engagement = df[['places','views','likes','comments', 'engagements']].copy()
 df_plot_engagement = df_plot_engagement.sort_values(by='engagements', ascending=False)
@@ -42,4 +40,8 @@ fig_moving_avg.update_layout(
     title="Media",
     xaxis_title="Tempo",
 )
+def change_fig_moving(columns):
+    columns = columns +'_moving_avg'
+    fig_moving_avg.data[-1].y = df[columns]
+    return fig_moving_avg
 
