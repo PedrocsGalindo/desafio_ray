@@ -25,3 +25,11 @@ def change_view(value):
     value = value +'_moving_avg'
     plots.fig_moving_avg.data[-1].y = df[value]
     return plots.fig_moving_avg
+#mudar a view do grafico de barras
+@callback(
+    Output('graph_bars_top_engagement', 'figure'),
+    Input('list_engagement', 'value')
+)
+def change_view(value):
+    fig_bar_top_engagement = plots.change_fig_bar(value)
+    return plots.fig_bar_top_engagement

@@ -13,12 +13,17 @@ fig_bar_top_engagement = go.Figure()
 fig_bar_top_engagement.add_trace(go.Bar(
     y=df_plot_engagement['places'],
     x=df_plot_engagement['views'],
-    marker_color='blue',
+    marker_color='yellow',
     orientation='h'
 ))
 fig_bar_top_engagement.update_layout(
     title='Top 5 Engajamentos',
 )
+
+def change_fig_bar(columns):
+    fig_bar_top_engagement.data[-1].x = df[columns]
+    return fig_bar_top_engagement
+
 
 #matriz de correalação entre view, likes e comentarios
 matriz_corr = df[['comments', 'likes', 'views']].corr()

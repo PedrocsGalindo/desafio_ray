@@ -6,6 +6,7 @@ layout = html.Div(children=[
     html.Button('Atualizar', id='update_infos'),
     html.Div(children=[
 
+        dcc.Dropdown(['views', 'likes', 'comments'], value = 'views', id='list_engagement'),
         dcc.Graph(id="graph_bars_top_engagement",figure=plots.fig_bar_top_engagement),
 
         dcc.Dropdown(['views', 'likes', 'comments'], value = 'views', id='list_means'),
