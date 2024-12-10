@@ -2,7 +2,7 @@
 
 ## Visão Geral
 
-Este projeto foi desenvolvido como parte do desafio técnico para consumo da API do YouTube e criação de um dashboard dinâmico. O objetivo é explorar os dados dos vídeos de highlights das corridas de Fórmula 1 de 2024 e apresentar insights relevantes através de uma visualização interativa.
+ O objetivo é explorar os dados dos vídeos de highlights das corridas de Fórmula 1 de 2024 e apresentar insights relevantes através de uma visualização interativa.
 
 ---
 
@@ -44,15 +44,15 @@ Este projeto foi desenvolvido como parte do desafio técnico para consumo da API
 ## Decisões Técnicas
 
 1. **Plotagem de Crescimento:**
-   - Focamos em uma visualização que demonstrasse a tendência de crescimento ou declínio das estatísticas ao longo do tempo.
+   - Focou-se em uma visualização que demonstrasse a tendência de crescimento ou declínio das estatísticas ao longo do tempo.
    - Optou-se por gráficos de média móvel para facilitar a compreensão, descartando séries temporais não tratadas.
 
 2. **Análise de Correlações:**
-   - Buscamos identificar correlações entre variáveis (data, visualizações, curtidas, comentários e duração dos vídeos).
+   - Buscou-se identificar correlações entre variáveis (data, visualizações, curtidas, comentários e duração dos vídeos).
    - Nenhuma correlação significativa foi encontrada, o que redirecionou o foco da análise.
 
 3. **Métrica de Engajamento:**
-   - Desenvolvemos uma métrica para identificar os vídeos mais impactantes:
+   - Desenvolve-se uma métrica para identificar os vídeos mais impactantes:
      \[
      \text{Engajamento} = \frac{\text{Curtidas} + \text{Comentários}}{\text{Visualizações}}
      \]
@@ -75,13 +75,10 @@ Este projeto foi desenvolvido como parte do desafio técnico para consumo da API
 
 ## Maiores Desafios
 
-1. **Configuração e Consumo da API:**
-   - Garantir o acesso à API e manipular os dados recebidos de forma eficiente.
-2. **Criação de Métricas Relevantes:**
+1. **Criação de Métricas Relevantes:**
    - Identificar formas de medir impacto e engajamento sem correlações diretas.
-3. **Storytelling Visual:**
+2. **Storytelling Visual:**
    - Construir gráficos intuitivos e impactantes que transmitissem informações relevantes.
 
 ---
 
-Sinta-se à vontade para entrar em contato para dúvidas ou sugestões.
