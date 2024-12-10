@@ -53,9 +53,7 @@
 
 3. **Métrica de Engajamento:**
    - Desenvolve-se uma métrica para identificar os vídeos mais impactantes:
-     \[
-     \text{Engajamento} = \frac{\text{Curtidas} + \text{Comentários}}{\text{Visualizações}}
-     \]
+     Engajamento = (Curtidas + Comentários) / Visualizações
    - Essa abordagem destacou os vídeos com maior engajamento.
 
 ---
