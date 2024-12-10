@@ -55,6 +55,7 @@ fig_bar_periods.add_trace(go.Bar(
 ))
 fig_bar_periods.update_layout(
     title='Ao longo da Temporada',
+    height=380
 )
 
 #matriz de correalação entre view, likes e comentarios

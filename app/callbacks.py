@@ -24,15 +24,6 @@ def change_view(value):
     fig_moving_avg = plots.change_fig_moving(value)
     return fig_moving_avg
 
-#mudar a view do grafico de barras
-@callback(
-    Output('graph_bars_top_engagement', 'figure'),
-    Input('list_engagement', 'value')
-)
-def change_view(value):
-    fig_bar_top_engagement = plots.change_fig_bar(value)
-    return fig_bar_top_engagement
-
 #mudar o calculo da KPIs
 @callback(
     Output('kpis_durations', 'children'),

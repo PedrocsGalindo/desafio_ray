@@ -91,3 +91,12 @@
     justify-content: center; 
     align-items: center;
 }
+.center_h {
+    display: grid;
+    grid-template-columns: 55% 45%; 
+    justify-content: center; 
+    align-items: center;
+}
+.graph_max_width {
+    max-width: 100%;
+}
