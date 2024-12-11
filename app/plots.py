@@ -100,5 +100,5 @@ def kpis(column, func = 'mean'):
     if func == 'max' or func == 'min':
         local = df.loc[df[column] == value, 'places']
         local = local.iloc[0]
-        answer = local +":" + answer
+        answer = local +": " + answer
     return answer
