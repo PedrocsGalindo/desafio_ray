@@ -26,23 +26,23 @@ layout = html.Div(children=[
             ),
             html.Div(children=[
                 html.H3(children="vizualizações", className=' title subtitle minsubtitle'),
-                html.P(children=plots.kpis('views'), id='kpis_views')
-            ], className='div_kpis horizontal_center'
+                html.P(children=plots.kpis('views'), id='kpis_views', className='kpis_text_valeus')
+            ], className='grid-pane div_kpis horizontal_center'
             ),
             html.Div(children=[
                 html.H3(children="curtidas", className=' title subtitle minsubtitle'),
-                html.P(children=plots.kpis('likes'), id='kpis_likes')
-            ], className='div_kpis horizontal_center'
+                html.P(children=plots.kpis('likes'), id='kpis_likes', className='kpis_text_valeus')
+            ], className='grid-pane div_kpis horizontal_center'
             ),
             html.Div(children=[
                 html.H3(children="comentarios", className=' title subtitle minsubtitle'),
-                html.P(children=plots.kpis('comments'), id='kpis_comments')
-            ], className='div_kpis horizontal_center'
+                html.P(children=plots.kpis('comments'), id='kpis_comments', className='kpis_text_valeus')
+            ], className='grid-pane div_kpis horizontal_center'
             ),
             html.Div(children=[
                 html.H3(children="Duração", className=' title subtitle minsubtitle'),
-                html.P(children=plots.kpis('durations'), id='kpis_durations')
-            ], className='div_kpis horizontal_center'
+                html.P(children=plots.kpis('durations'), id='kpis_durations', className='kpis_text_valeus')
+            ], className='grid-pane div_kpis horizontal_center'
             )
         ],
         className='grid-pane column_6'
@@ -71,4 +71,6 @@ layout = html.Div(children=[
     ],
     className='grid-pane row_3'
     ),
-])
+],
+className='conteiner'
+)
