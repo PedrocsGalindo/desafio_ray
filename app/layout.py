@@ -7,6 +7,7 @@ layout = html.Div(children=[
         html.Button('Atualizar', id='update_infos', className='btn'),
         ], 
         className='grid_flex_row'
+        
     ),
     html.Div(children=[
         html.Div(children=[
