@@ -41,7 +41,7 @@ body {
     flex-direction: row;
 }
 .row_4{
-    grid-template-rows: 10% 25% 25% 40%;  
+    grid-template-rows: 7% 25% 28% 40%;  
 }
 .column_6 {
     grid-template-columns: 10% 10% repeat(4, 20%);
@@ -165,6 +165,14 @@ body {
     font-size: 1em; 
     font-weight: bold;
     color: #333;
+}
+
+.grid-pane.column_fifty_fifty {
+    padding: 0 20px; 
+    box-sizing: border-box;
+    display: grid; 
+    grid-template-columns: 48% 48%; 
+    gap: 4%; 
 }
 
 .btn {
