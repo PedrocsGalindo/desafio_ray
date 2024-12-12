@@ -20,7 +20,8 @@ layout = html.Div(children=[
                     {"label": "Soma", "value": "sum"}
                 ], 
                 value="mean", 
-                labelStyle={}
+                labelStyle={"display": "flex", "alignItems": "center", "fontSize": "1.1em"},
+                className="radio-container"
                 ),
             ],
             className='grid_flex_row'

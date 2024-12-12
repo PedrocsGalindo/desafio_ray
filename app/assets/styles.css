@@ -45,11 +45,11 @@ body {
 }
 .column_6 {
     grid-template-columns: 10% 10% repeat(4, 20%);
-    gap:20px;               /* Espaçamento entre colunas */
-    width: 90vw;             /* Ajusta ao contêiner pai */
-    max-width: 85vw;       /* Garante que não exceda o limite */
-    margin: 0 auto;          /* Centraliza o grid horizontalmente */
-    box-sizing: border-box;  /* Inclui padding no cálculo da largura */
+    gap:20px;               
+    width: 90vw;            
+    max-width: 85vw;      
+    margin: 0 auto;         
+    box-sizing: border-box;  
 }
 
 .column_fifty_fifty{
@@ -73,6 +73,50 @@ body {
     padding: 0;            
     text-align: center;       
 }
+
+
+.radio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px; 
+    margin: 5px; 
+    font-family: 'Arial', sans-serif;
+    font-size: 0.9em; 
+}
+
+.radio-container input[type="radio"] {
+    appearance: none;
+    width: 15px; 
+    height: 15px; 
+    border: 2px solid #e74c3c;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.radio-container input[type="radio"]:checked {
+    background-color: #e74c3c;
+    border-color: #c0392b;
+}
+
+.radio-container input[type="radio"]:focus {
+    box-shadow: 0 0 3px #e74c3c; 
+}
+
+.radio-container label {
+    font-size: 0.85em; 
+    color: #333;
+    cursor: pointer;
+    margin-left: 5px; 
+    transition: color 0.3s ease;
+}
+
+.radio-container label:hover {
+    color: #e74c3c;
+}
+
 
 .btn {
     border: none;
