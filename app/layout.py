@@ -65,7 +65,7 @@ layout = html.Div(children=[
         ),
         html.Div(children=[
             html.Div(children=[
-                dcc.Dropdown(['views', 'likes', 'comments'], value = 'views', id='list_means', className='dropdown',),
+                dcc.Dropdown(['views', 'likes', 'comments'], value = 'views', id='list_means', className='dropdown'),
                 dcc.Graph(id="graph_mult_lines", figure=plots.fig_moving_avg, )
             ],
             style={"flex": "1", "padding": "10px"}
@@ -266,7 +266,7 @@ layout = html.Div(children=[
                         ),
                     ],
                 )
-            ], id='lista-relevancia'
+            ], id='lista-engagement'
             ),
             html.Div(children=[
                 html.Div(
