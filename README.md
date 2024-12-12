@@ -70,6 +70,7 @@
   - Dash 2.18.2
   - Pandas 2.2.3
   - googleapiclient
+  - plotly 5.24.1
 - **Ferramentas Adicionais:**
   - API do YouTube Data v3
 

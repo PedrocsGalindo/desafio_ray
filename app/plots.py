@@ -58,6 +58,14 @@ fig_bar_periods.update_layout(
     height=380
 )
 
+#grafico de pizza de todos os videos
+fig_pizza = go.Figure()
+fig_pizza.add_trace(go.Pie(
+    labels=df['places'],            
+    values=df['views'],
+    hole=0.3)
+)
+
 #matriz de correalação entre view, likes e comentarios
 matriz_corr = df[['comments', 'likes', 'views']].corr()
 

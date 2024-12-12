@@ -3,7 +3,7 @@ import plots
 
 layout = html.Div(children=[
     html.Div(children=[
-        html.Header(children='Highlights da Temporada de Fórmula 1 - 2024', className='title'),
+        html.Header(children='Highlights da Temporada de Fórmula 1 - 2024', className='title title_border_bottom'),
         html.Button('Atualizar', id='update_infos', className='btn'),
         ], 
         className='grid_flex_row'
@@ -26,22 +26,22 @@ layout = html.Div(children=[
             className='grid_flex_row'
             ),
             html.Div(children=[
-                html.H3(children="vizualizações", className=' title subtitle minsubtitle'),
+                html.H3(children="vizualizações", className=' title kpis_titles'),
                 html.P(children=plots.kpis('views'), id='kpis_views', className='kpis_text_valeus')
             ], className='grid-pane div_kpis horizontal_center'
             ),
             html.Div(children=[
-                html.H3(children="curtidas", className=' title subtitle minsubtitle'),
+                html.H3(children="curtidas", className=' title kpis_titles'),
                 html.P(children=plots.kpis('likes'), id='kpis_likes', className='kpis_text_valeus')
             ], className='grid-pane div_kpis horizontal_center'
             ),
             html.Div(children=[
-                html.H3(children="comentarios", className=' title subtitle minsubtitle'),
+                html.H3(children="comentarios", className=' title kpis_titles'),
                 html.P(children=plots.kpis('comments'), id='kpis_comments', className='kpis_text_valeus')
             ], className='grid-pane div_kpis horizontal_center'
             ),
             html.Div(children=[
-                html.H3(children="Duração", className=' title subtitle minsubtitle'),
+                html.H3(children="Duração", className=' title kpis_titles'),
                 html.P(children=plots.kpis('durations'), id='kpis_durations', className='kpis_text_valeus')
             ], className='grid-pane div_kpis horizontal_center'
             )
@@ -54,7 +54,7 @@ layout = html.Div(children=[
                     "flex": "1", 
                 }
             ),
-            html.H1(children='plot de pizza aq')
+            dcc.Graph(id='graph_pizza', figure=plots.fig_pizza),
         ],
         className='grid-pane column_fifty_fifty'
         ),
