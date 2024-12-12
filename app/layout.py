@@ -70,7 +70,10 @@ layout = html.Div(children=[
             ],
             style={"flex": "1", "padding": "10px"}
             ),
-            #tabela tops engajamento
+        ],
+        className='grid-pane'
+        ),
+        html.Div(children=[
             html.Div(children=[
                 html.Div(
                     className="relevance-list-container",
@@ -263,12 +266,207 @@ layout = html.Div(children=[
                         ),
                     ],
                 )
-            ], id='lista-relevancia'),
+            ], id='lista-relevancia'
+            ),
+            html.Div(children=[
+                html.Div(
+                    className="relevance-list-container",
+                    children=[
+                        html.H5("Top relevance", className="relevance-list-title"),
+                        html.Div(
+                            className="relevance-list-item",
+                            children=[
+                                html.Div(
+                                    className="relevance-list-item-info",
+                                    children=[
+                                        html.Div(
+                                            children=[
+                                                html.P('1- ' + plots.df_tops_relevance['places'].iloc[0], className="currency-code"),
+                                                html.H6(plots.df_tops_relevance['titles'].iloc[0], className="currency-description"),
+                                            ]
+                                        ),
+                                    ],
+                                ),
+                                html.Div(
+                                    className="relevance-list-view-info",
+                                    children=[
+                                        html.Small("View", className="label-small"),
+                                        html.H6(plots.df_tops_relevance['views'].iloc[0], className="value-large"),
+                                    ],
+                                ),
+                                html.Div(
+                                    className="relevance-list-like-info",
+                                    children=[
+                                        html.Small("Like", className="label-small"),
+                                        html.H6(plots.df_tops_relevance['likes'].iloc[0], className="value-large"),
+                                    ],
+                                ),
+                                html.Div(
+                                    className="relevance-list-comments-info",
+                                    children=[
+                                        html.Small("Comments", className="label-small"),
+                                        html.H6(plots.df_tops_relevance['comments'].iloc[0], className="value-large"),
+                                    ],
+                                ),
+                            ],
+                        ),
+                        html.Div(
+                            className="relevance-list-item",
+                            children=[
+                                html.Div(
+                                    className="relevance-list-item-info",
+                                    children=[
+                                        html.Div(
+                                            children=[
+                                                html.P('2- ' + plots.df_tops_relevance['places'].iloc[1], className="currency-code"),
+                                                html.H6(plots.df_tops_relevance['titles'].iloc[1], className="currency-description"),
+                                            ]
+                                        ),
+                                    ],
+                                ),
+                                html.Div(
+                                    className="relevance-list-view-info",
+                                    children=[
+                                        html.Small("View", className="label-small"),
+                                        html.H6(plots.df_tops_relevance['views'].iloc[1], className="value-large"),
+                                    ],
+                                ),
+                                html.Div(
+                                    className="relevance-list-like-info",
+                                    children=[
+                                        html.Small("Like", className="label-small"),
+                                        html.H6(plots.df_tops_relevance['likes'].iloc[1], className="value-large"),
+                                    ],
+                                ),
+                                html.Div(
+                                    className="relevance-list-comments-info",
+                                    children=[
+                                        html.Small("Comments", className="label-small"),
+                                        html.H6(plots.df_tops_relevance['comments'].iloc[1], className="value-large"),
+                                    ],
+                                ),
+                            ],
+                        ),
+                        html.Div(
+                            className="relevance-list-item",
+                            children=[
+                                html.Div(
+                                    className="relevance-list-item-info",
+                                    children=[
+                                        html.Div(
+                                            children=[
+                                                html.P('3- ' + plots.df_tops_relevance['places'].iloc[2], className="currency-code"),
+                                                html.H6(plots.df_tops_relevance['titles'].iloc[2], className="currency-description"),
+                                            ]
+                                        ),
+                                    ],
+                                ),
+                                html.Div(
+                                    className="relevance-list-view-info",
+                                    children=[
+                                        html.Small("View", className="label-small"),
+                                        html.H6(plots.df_tops_relevance['views'].iloc[2], className="value-large"),
+                                    ],
+                                ),
+                                html.Div(
+                                    className="relevance-list-like-info",
+                                    children=[
+                                        html.Small("Like", className="label-small"),
+                                        html.H6(plots.df_tops_relevance['likes'].iloc[2], className="value-large"),
+                                    ],
+                                ),
+                                html.Div(
+                                    className="relevance-list-comments-info",
+                                    children=[
+                                        html.Small("Comments", className="label-small"),
+                                        html.H6(plots.df_tops_relevance['comments'].iloc[2], className="value-large"),
+                                    ],
+                                ),
+                            ],
+                        ),
+                        html.Div(
+                            className="relevance-list-item",
+                            children=[
+                                html.Div(
+                                    className="relevance-list-item-info",
+                                    children=[
+                                        html.Div(
+                                            children=[
+                                                html.P('4- ' + plots.df_tops_relevance['places'].iloc[3], className="currency-code"),
+                                                html.H6(plots.df_tops_relevance['titles'].iloc[3], className="currency-description"),
+                                            ]
+                                        ),
+                                    ],
+                                ),
+                                html.Div(
+                                    className="relevance-list-view-info",
+                                    children=[
+                                        html.Small("View", className="label-small"),
+                                        html.H6(plots.df_tops_relevance['views'].iloc[3], className="value-large"),
+                                    ],
+                                ),
+                                html.Div(
+                                    className="relevance-list-like-info",
+                                    children=[
+                                        html.Small("Like", className="label-small"),
+                                        html.H6(plots.df_tops_relevance['likes'].iloc[3], className="value-large"),
+                                    ],
+                                ),
+                                html.Div(
+                                    className="relevance-list-comments-info",
+                                    children=[
+                                        html.Small("Comments", className="label-small"),
+                                        html.H6(plots.df_tops_relevance['comments'].iloc[3], className="value-large"),
+                                    ],
+                                ),
+                            ],
+                        ),
+                        html.Div(
+                            className="relevance-list-item",
+                            children=[
+                                html.Div(
+                                    className="relevance-list-item-info",
+                                    children=[
+                                        html.Div(
+                                            children=[
+                                                html.P('5- ' + plots.df_tops_relevance['places'].iloc[4], className="currency-code"),
+                                                html.H6(plots.df_tops_relevance['titles'].iloc[4], className="currency-description"),
+                                            ]
+                                        ),
+                                    ],
+                                ),
+                                html.Div(
+                                    className="relevance-list-view-info",
+                                    children=[
+                                        html.Small("View", className="label-small"),
+                                        html.H6(plots.df_tops_relevance['views'].iloc[4], className="value-large"),
+                                    ],
+                                ),
+                                html.Div(
+                                    className="relevance-list-like-info",
+                                    children=[
+                                        html.Small("Like", className="label-small"),
+                                        html.H6(plots.df_tops_relevance['likes'].iloc[4], className="value-large"),
+                                    ],
+                                ),
+                                html.Div(
+                                    className="relevance-list-comments-info",
+                                    children=[
+                                        html.Small("Comments", className="label-small"),
+                                        html.H6(plots.df_tops_relevance['comments'].iloc[4], className="value-large"),
+                                    ],
+                                ),
+                            ],
+                        ),
+                    ],
+                )
+            ], id='lista-relevancia'
+            ),
         ],
-        className='grid-pane colunm_2'
-        )
+        className='grid-pane column_fifty_fifty'
+        ),
     ],
-    className='grid-pane row_3'
+    className='grid-pane row_4'
     ),
 ],
 className='conteiner'

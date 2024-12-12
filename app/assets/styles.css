@@ -40,8 +40,8 @@ body {
     display: flex;
     flex-direction: row;
 }
-.row_3{
-    grid-template-rows: 10% 40% 50%;  
+.row_4{
+    grid-template-rows: 10% 25% 25% 40%;  
 }
 .column_6 {
     grid-template-columns: 10% 10% repeat(4, 20%);
