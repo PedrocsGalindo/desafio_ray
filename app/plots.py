@@ -102,3 +102,13 @@ def kpis(column, func = 'mean'):
         local = local.iloc[0]
         answer = local +": " + answer
     return answer
+
+#Lista top 5 engajamento e relevancia
+df_aux = df[['relevances', 'engagements','places']].copy()
+
+df_aux = df_aux.sort_values(by='relevances')
+list_tops_relevance = list(df_aux['places'].tail(5))
+
+df_aux = df_aux.sort_values(by='engagements')
+list_tops_engagement = list(df_aux['places'].tail(5))
+
