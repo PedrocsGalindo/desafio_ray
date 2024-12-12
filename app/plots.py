@@ -112,11 +112,10 @@ def kpis(column, func = 'mean'):
     return answer
 
 #Lista top 5 engajamento e relevancia
-df_aux = df[['relevances', 'engagements','places']].copy()
+df_aux = df[['relevances', 'engagements','places','likes','views','comments', 'titles']].copy()
 
-df_aux = df_aux.sort_values(by='relevances')
-list_tops_relevance = list(df_aux['places'].tail(5))
+df_tops_relevance = df_aux.sort_values(by='relevances', ascending=False)
+df_tops_relevance = df_tops_relevance[0:5]
 
-df_aux = df_aux.sort_values(by='engagements')
-list_tops_engagement = list(df_aux['places'].tail(5))
-
+df_tops_engagement = df_aux.sort_values(by='engagements', ascending=False)
+df_tops_engagement = df_tops_engagement[0:5]
