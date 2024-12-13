@@ -36,10 +36,15 @@ body {
 .grid-pane{
     display: grid;
 }
-.grid_flex_row{
+.grid_flex{
     display: flex;
+}
+.grid_flex_row{
     flex-direction: row;
     height: 8Vh;
+}
+.grid_flex_column{
+    flex-direction: column;
 }
 .row_4{
     grid-template-rows: 6% 27% 27% 40%;  

@@ -4,7 +4,7 @@ import app
 import data_manager
 import plots
 
-#atualizar os dados ao clilcar no botao
+#Atualizar os dados ao clilcar no botao
 @callback(
     Input('update_infos', 'n_clicks'),
     running=[(Output("update_infos", "disabled"), True, False)]
@@ -15,7 +15,7 @@ def update_output(n_clicks):
     else:
         data_manager.att_info()
 
-#mudar a view do grafico de linha
+#Mudar a view do grafico de linha
 @callback(
     Output('graph_mult_lines', 'figure'),
     Input('list_means', 'value')
@@ -24,7 +24,7 @@ def change_view(value):
     fig_moving_avg = plots.change_fig_moving(value)
     return fig_moving_avg
 
-#mudar o calculo da KPIs
+# region Mudar o calculo da KPIs
 @callback(
     Output('kpis_durations', 'children'),
     Input('radio_options_kpis', 'value')
@@ -49,3 +49,4 @@ def change_kpis(value):
 )
 def change_kpis(value):
     return plots.kpis('views', func=value)
+#endregion

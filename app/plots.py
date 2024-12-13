@@ -10,7 +10,7 @@ dicionario_cores = dicionario_cores = {
     'comments': '#1E90FF'  # Azul profundo
 }
 
-#grafico de barras com os estatisticas da temporada
+# region Grafico de barras com os estatisticas da temporada
 df_top_periods = df[['normalized_comments', 'normalized_likes', 'normalized_views','periods']].copy()
 df_top_periods = df_top_periods.groupby('periods').sum()
 row_to_move = df_top_periods.loc['end']
@@ -43,27 +43,27 @@ fig_bar_periods.update_layout(
     plot_bgcolor='#1e1e2f',  
     height=380
 )
-
+#endregion
 
 #grafico de pizza de todos os videos
-fig_pizza = go.Figure()
-fig_pizza.add_trace(go.Pie(
-    labels=df['places'],            
-    values=df['views'],
-    hole=0.3)
+fig_bar_all = go.Figure()
+fig_bar_all.add_trace(go.Bar(
+    y=df['places'],            
+    x=df['views'],
+    orientation='h'
+    )
 )
-fig_pizza.update_traces(marker=dict(colors=['#FFD700', '#FF6347', '#1E90FF']))
-fig_pizza.update_layout(
-    paper_bgcolor='#1e1e2f',  
-    plot_bgcolor='#1e1e2f',  
+fig_bar_all.update_layout(
     template="plotly_dark",
-    title="Distribuição de Visualizações"
+    paper_bgcolor='#1e1e2f',  
+    plot_bgcolor='#1e1e2f', 
 )
+def change_fig_bar_all(column):
+    fig_moving_avg.data[-1].x = df_mean[column]
+    return fig_moving_avg
 
-#matriz de correalação entre view, likes e comentarios
-matriz_corr = df[['comments', 'likes', 'views']].corr()
 
-#grafico de linha da media de view, likes e comentarios (necessario 30 dias)
+# region Grafico de linha da media de view, likes e comentarios (necessario 30 dias)
 df_mean = df[['comments_moving_avg', 'likes_moving_avg', 'views_moving_avg', 'order', 'published_dates']].copy()
 df_mean['published_dates'] = pd.to_datetime(df_mean['published_dates'])
 df_mean['posting_time'] = (datetime.now(timezone.utc) - df_mean['published_dates']).dt.days
@@ -88,8 +88,9 @@ def change_fig_moving(columns):
     columns = columns +'_moving_avg'
     fig_moving_avg.data[-1].y = df_mean[columns]
     return fig_moving_avg
+# endregion
 
-#variaveis de KPIs
+# variaveis de KPIs
 dict_func = {
     'mean': pd.Series.mean,
     'max' : pd.Series.max,
@@ -109,7 +110,7 @@ def kpis(column, func = 'mean'):
         answer = local +": " + answer
     return answer
 
-#Lista top 5 engajamento e relevancia
+# region Lista top 5 engajamento e relevancia
 df_aux = df[['relevances', 'engagements','places','likes','views','comments', 'titles']].copy()
 
 df_tops_relevance = df_aux.sort_values(by='relevances', ascending=False)
@@ -117,3 +118,4 @@ df_tops_relevance = df_tops_relevance[0:5]
 
 df_tops_engagement = df_aux.sort_values(by='engagements', ascending=False)
 df_tops_engagement = df_tops_engagement[0:5]
+#endregion
