@@ -45,7 +45,7 @@ fig_bar_periods.update_layout(
 )
 #endregion
 
-#grafico de pizza de todos os videos
+#region grafico de barras verticais de todos os videos
 fig_bar_all = go.Figure()
 fig_bar_all.add_trace(go.Bar(
     y=df['places'],            
@@ -61,10 +61,10 @@ fig_bar_all.update_layout(
 def change_fig_bar_all(column):
     fig_bar_all.data[-1].x = df[column].sort_values()
     return fig_bar_all
-
+#endregion
 
 # region Grafico de linha da media de view, likes e comentarios (necessario 30 dias)
-df_mean = df[['comments_moving_avg', 'likes_moving_avg', 'views_moving_avg', 'order', 'published_dates']].copy()
+df_mean = df[['comments_moving_avg', 'likes_moving_avg', 'views_moving_avg', 'order', 'published_dates', 'places']].copy()
 df_mean['published_dates'] = pd.to_datetime(df_mean['published_dates'])
 df_mean['posting_time'] = (datetime.now(timezone.utc) - df_mean['published_dates']).dt.days
 df_mean = df_mean[df_mean['posting_time'] >= 30]
@@ -75,12 +75,16 @@ fig_moving_avg.add_trace(go.Scatter(
     y=df_mean['views_moving_avg'],
     mode="lines+markers",
     name="Vizualizações",
-    line=dict(color=dicionario_cores['views']),  
+    line=dict(color=dicionario_cores['views']),
 ))
 fig_moving_avg.update_layout(
+    xaxis=dict(
+        tickvals=df_mean['order'].tolist(),
+        ticktext=df_mean['places'].tolist(),
+        title="Tempo"
+    ),
     template="plotly_dark",
     title="Media",
-    xaxis_title="Tempo",
     paper_bgcolor='#1e1e2f',  
     plot_bgcolor='#1e1e2f',  
 )

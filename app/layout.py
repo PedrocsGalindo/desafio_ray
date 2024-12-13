@@ -19,7 +19,7 @@ layout = html.Div(children=[
                     {"label": "Media", "value": "mean"},
                     {"label": "Maior", "value": "max"},
                     {"label": "Menor", "value": "min"},
-                    {"label": "Soma", "value": "sum"}
+                    {"label": "Total", "value": "sum"}
                 ], 
                 value="mean", 
                 labelStyle={
