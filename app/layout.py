@@ -62,9 +62,20 @@ layout = html.Div(children=[
             html.Div(children=[
                 dcc.Graph(id='graph-bar-all', figure=plots.fig_bar_all),
                 html.Div(children=[
-                    html.H1(children='carro'),
-                ],
-                className=''
+                    html.Div(children=[
+                        dcc.RadioItems(
+                            id='radio-options-graph-bar-all',
+                            options=[
+                                {'label': ' Visualizações', 'value': 'views'},
+                                {'label': ' Curtidas', 'value': 'likes'},
+                                {'label': ' Comentários', 'value': 'comments'}
+                            ],
+                            value='views',
+                            style={'display': 'flex', 'flex-direction': 'column'}
+                        )
+                    ], style={'margin-top': '20px'}),
+                ], 
+                className='gri_flex grid_flex_column'
                 ),
             ],
             className='grid_flex grid_flex_row')

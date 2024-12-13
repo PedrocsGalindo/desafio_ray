@@ -15,15 +15,6 @@ def update_output(n_clicks):
     else:
         data_manager.att_info()
 
-#Mudar a view do grafico de linha
-@callback(
-    Output('graph_mult_lines', 'figure'),
-    Input('list_means', 'value')
-)
-def change_view(value):
-    fig_moving_avg = plots.change_fig_moving(value)
-    return fig_moving_avg
-
 # region Mudar o calculo da KPIs
 @callback(
     Output('kpis_durations', 'children'),
@@ -50,3 +41,21 @@ def change_kpis(value):
 def change_kpis(value):
     return plots.kpis('views', func=value)
 #endregion
+
+#Mudar grafico de barra todos
+@callback(
+    Output('graph-bar-all', 'figure'),
+    Input('radio-options-graph-bar-all', 'value')
+)
+def change_graph_bar(value):
+    return plots.change_fig_bar_all(value)
+
+
+#Mudar a view do grafico de linha
+@callback(
+    Output('graph_mult_lines', 'figure'),
+    Input('list_means', 'value')
+)
+def change_view(value):
+    fig_moving_avg = plots.change_fig_moving(value)
+    return fig_moving_avg
