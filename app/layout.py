@@ -2,13 +2,16 @@ from dash import html, dcc
 import plots
 
 layout = html.Div(children=[
+    # Cabeçalho
     html.Div(children=[
         html.Header(children='Highlights da Temporada de Fórmula 1 - 2024', className='title title_border_bottom'),
         html.Button('Atualizar', id='update_infos', className='btn'),
         ], 
         className='grid_flex grid_flex_row height-8vh'
     ),
+    # Plotagens
     html.Div(children=[
+        # Kpis
         html.Div(children=[
             html.Div(),
             html.Div(children=[
@@ -53,6 +56,7 @@ layout = html.Div(children=[
         ],
         className='grid-pane column_6'
         ),
+        # Graficos de barras
         html.Div(children=[
             dcc.Graph(id="graph_bars_periods", figure=plots.fig_bar_periods, 
                 style={
@@ -71,7 +75,8 @@ layout = html.Div(children=[
                                 {'label': ' Comentários', 'value': 'comments'}
                             ],
                             value='views',
-                            style={'display': 'flex', 'flex-direction': 'column'}
+                            style={'display': 'flex', 'flex-direction': 'column'},
+                            className='radio-options-graph'
                         )
                     ], style={'margin-top': '20px'}),
                 ], 
@@ -82,6 +87,7 @@ layout = html.Div(children=[
         ],
         className='grid-pane column_fifty_fifty'
         ),
+        # Grafico de linha
         html.Div(children=[
             html.Div(children=[
                 html.Div(children=[
@@ -94,7 +100,8 @@ layout = html.Div(children=[
                                 {'label': ' Comentários', 'value': 'comments'}
                             ],
                             value='views',
-                            style={'display': 'flex', 'flex-direction': 'row'}
+                            style={'display': 'flex', 'flex-direction': 'row'},
+                            className='radio-options-graph center'
                         )
                     ], style={'margin-top': '20px'}),
                 ], 
@@ -107,6 +114,7 @@ layout = html.Div(children=[
         ],
         className='grid-pane'
         ),
+        # Tabela engajamento e relevancia
         html.Div(children=[
             html.Div(children=[
                 html.Div(
