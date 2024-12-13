@@ -10,27 +10,6 @@ dicionario_cores = dicionario_cores = {
     'comments': '#1E90FF'  # Azul profundo
 }
 
-#grafico de barras com top 5 com mais engajamento
-df_plot_engagement = df[['places','views','likes','comments', 'engagements']].copy()
-df_plot_engagement = df_plot_engagement.sort_values(by='engagements', ascending=False)
-df_plot_engagement = df_plot_engagement[:5]
-fig_bar_top_engagement = go.Figure()
-
-fig_bar_top_engagement.add_trace(go.Bar(
-    y=df_plot_engagement['places'],
-    x=df_plot_engagement['views'],
-    marker_color='yellow',
-    orientation='h'
-))
-fig_bar_top_engagement.update_layout(
-    title='Top 5 Engajamentos',
-)
-
-def change_fig_bar(columns):
-    fig_bar_top_engagement.data[-1].x = df[columns]
-    fig_bar_top_engagement.data[0].marker.color = dicionario_cores[columns]
-    return fig_bar_top_engagement
-
 #grafico de barras com os estatisticas da temporada
 df_top_periods = df[['normalized_comments', 'normalized_likes', 'normalized_views','periods']].copy()
 df_top_periods = df_top_periods.groupby('periods').sum()
