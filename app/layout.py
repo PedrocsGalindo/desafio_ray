@@ -28,7 +28,7 @@ layout = html.Div(children=[
                 className="radio-container"
                 ),
             ],
-            className='grid_flex grid_flex_row height-8vh'
+
             ),
             html.Div(children=[
                 html.H3(children="vizualizações", className=' title kpis_titles'),
@@ -61,7 +61,11 @@ layout = html.Div(children=[
             ),
             html.Div(children=[
                 dcc.Graph(id='graph-bar-all', figure=plots.fig_bar_all),
-                html.H1(children='carro'),
+                html.Div(children=[
+                    html.H1(children='carro'),
+                ],
+                className=''
+                ),
             ],
             className='grid_flex grid_flex_row')
         ],
