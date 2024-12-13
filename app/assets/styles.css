@@ -9,11 +9,11 @@ body {
     text-align: center;          
 
     letter-spacing: 1.5px;          
-    margin: 22.5px 0; 
+    margin: 15px 0; 
 }
 .title_border_bottom{
     border-bottom: 2.25px solid #FF4500; 
-    padding-bottom: 7.5px;      
+    padding-bottom: 4px;      
 }
 .kpis_titles{
     font-size: 1rem;
@@ -39,9 +39,10 @@ body {
 .grid_flex_row{
     display: flex;
     flex-direction: row;
+    height: 8Vh;
 }
 .row_4{
-    grid-template-rows: 7% 25% 28% 40%;  
+    grid-template-rows: 6% 27% 27% 40%;  
 }
 .column_6 {
     grid-template-columns: 10% 10% repeat(4, 20%);
