@@ -1,18 +1,19 @@
 body {
-    max-width: 100vw;        
-    overflow-x: hidden;     
+    background-color: #1e1e2f; 
+    color: #e0e0e0; 
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 .title {
     font-family: Georgia, serif;  
     font-size: 2.25em;         
-    color: #333;                
+    color: #ffffff;        
     text-align: center;          
-
     letter-spacing: 1.5px;          
     margin: 15px 0; 
 }
 .title_border_bottom{
-    border-bottom: 2.25px solid #FF4500; 
+    border-bottom: 2.25px solid #ff4500;
     padding-bottom: 4px;      
 }
 .kpis_titles{
@@ -20,8 +21,7 @@ body {
     text-transform: uppercase; 
     letter-spacing: 1px; 
     margin-bottom: 10px; 
-    color: #333; 
-
+    color: #ffcc00; 
     margin: 0; 
 }
 
@@ -29,7 +29,7 @@ body {
     font-family: Arial, sans-serif;
     font-size: 1.5em;         
     font-weight: bold;       
-    color: #333;           
+    color: #ffffff;           
     margin-top: 7.5px;         
 }
 
@@ -67,9 +67,9 @@ body {
     grid-template-rows: 30% 70%;
     place-items: center; 
     text-align: center;
-    background-color: #ff6b6b;
-    border: none;            
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    background-color: #2a2a40; 
+    border: 1px solid #444;          
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
     border-radius: 10px;      
     padding: 0;            
     text-align: center;       
@@ -79,18 +79,18 @@ body {
 .radio-container {
     display: flex;
     flex-direction: column;
-
     gap: 5px; 
     margin: 5px; 
     font-family: 'Arial', sans-serif;
-    font-size: 0.9em; 
+    font-size: 0.9em;
 }
 
 .radio-container input[type="radio"] {
     appearance: none;
     width: 15px; 
     height: 15px; 
-    border: 2px solid #e74c3c;
+    border: 2px solid #ffcc00;
+    background-color: #2a2a40; 
     border-radius: 50%;
     outline: none;
     cursor: pointer;
@@ -99,7 +99,7 @@ body {
 }
 
 .radio-container input[type="radio"]:checked {
-    background-color: #e74c3c;
+    background-color: #ffcc00; 
     border-color: #c0392b;
 }
 
@@ -109,7 +109,7 @@ body {
 
 .radio-container label {
     font-size: 0.85em; 
-    color: #333;
+    color: #e0e0e0; 
     cursor: pointer;
     margin-left: 5px; 
     transition: color 0.3s ease;
@@ -121,13 +121,15 @@ body {
 
 .relevance-list-container {
     padding: 8px; 
-    background-color: #f9f9f9;
-    border-radius: 6px; 
+    background-color: #29293d; 
+    border-radius: 8px;
+    color: #e0e0e0;
 }
 
 .relevance-list-title {
     font-size: 1.2em; 
     font-weight: bold;
+    color: #ff4500; 
     margin-bottom: 8px; 
 }
 
@@ -143,6 +145,7 @@ body {
     font-weight: bold;
     margin-bottom: 3px; 
     font-size: 0.9em; 
+    color: #ffcc00; 
 }
 
 .currency-description {
@@ -165,7 +168,7 @@ body {
 .value-large {
     font-size: 1em; 
     font-weight: bold;
-    color: #333;
+    color: #ffffff; 
 }
 
 .grid-pane.column_fifty_fifty {
@@ -180,8 +183,8 @@ body {
     border: none;
     font-family: 'Lato', sans-serif;
     font-size: 1em; 
-    color: #fff;
-    background: #e74c3c; 
+    background-color: #ff4500;
+    color: #ffffff;
     cursor: pointer;
     padding: 2.5px 10px; 
     display: inline-block;
@@ -196,10 +199,10 @@ body {
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); 
 }
 .btn:hover {
-    background: #c0392b; 
+    background-color: #cc3700;
 }
 .btn:active {
-    background: #a8322a;
+    background-color: #a32c00;
     top: 1px; 
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); 
 }

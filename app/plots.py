@@ -4,7 +4,11 @@ import data_manager
 from datetime import datetime, timezone
 
 df = data_manager.get_playlistInfo()
-dicionario_cores = {'views' : 'yellow', 'likes' : 'red', 'comments': 'blue'}
+dicionario_cores = dicionario_cores = {
+    'views': '#FFD700',  # Amarelo dourado
+    'likes': '#FF6347',  # Vermelho tomate
+    'comments': '#1E90FF'  # Azul profundo
+}
 
 #grafico de barras com top 5 com mais engajamento
 df_plot_engagement = df[['places','views','likes','comments', 'engagements']].copy()
@@ -38,25 +42,29 @@ fig_bar_periods = go.Figure()
 fig_bar_periods.add_trace(go.Bar(
     x=df_top_periods.index,
     y=df_top_periods['normalized_views'],
-    marker_color='yellow',
-    name="Vizualizações" 
+    marker_color=dicionario_cores['views'],  
+    name="Vizualizações"
 ))
 fig_bar_periods.add_trace(go.Bar(
     x=df_top_periods.index,
     y=df_top_periods['normalized_likes'],
-    marker_color='red',
-    name="Curtidas" 
+    marker_color=dicionario_cores['likes'],  
+    name="Curtidas"
 ))
 fig_bar_periods.add_trace(go.Bar(
     x=df_top_periods.index,
     y=df_top_periods['normalized_comments'],
-    marker_color='blue',
-    name="Comentarios" 
+    marker_color=dicionario_cores['comments'],  
+    name="Comentários"
 ))
 fig_bar_periods.update_layout(
     title='Ao longo da Temporada',
+    template="plotly_dark",
+    paper_bgcolor='#1e1e2f',  
+    plot_bgcolor='#1e1e2f',  
     height=380
 )
+
 
 #grafico de pizza de todos os videos
 fig_pizza = go.Figure()
@@ -64,6 +72,13 @@ fig_pizza.add_trace(go.Pie(
     labels=df['places'],            
     values=df['views'],
     hole=0.3)
+)
+fig_pizza.update_traces(marker=dict(colors=['#FFD700', '#FF6347', '#1E90FF']))
+fig_pizza.update_layout(
+    paper_bgcolor='#1e1e2f',  
+    plot_bgcolor='#1e1e2f',  
+    template="plotly_dark",
+    title="Distribuição de Visualizações"
 )
 
 #matriz de correalação entre view, likes e comentarios
@@ -77,14 +92,18 @@ df_mean = df_mean[df_mean['posting_time'] >= 30]
 
 fig_moving_avg = go.Figure()
 fig_moving_avg.add_trace(go.Scatter(
-    x=df_mean['order'],  
+    x=df_mean['order'],
     y=df_mean['views_moving_avg'],
-    mode="lines+markers",                          
-    name="Vizualizações"                                  
+    mode="lines+markers",
+    name="Vizualizações",
+    line=dict(color=dicionario_cores['views']),  
 ))
 fig_moving_avg.update_layout(
+    template="plotly_dark",
     title="Media",
     xaxis_title="Tempo",
+    paper_bgcolor='#1e1e2f',  
+    plot_bgcolor='#1e1e2f',  
 )
 def change_fig_moving(columns):
     columns = columns +'_moving_avg'
