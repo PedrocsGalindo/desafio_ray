@@ -54,7 +54,7 @@ def change_graph_bar(value):
 #Mudar a view do grafico de linha
 @callback(
     Output('graph_mult_lines', 'figure'),
-    Input('list_means', 'value')
+    Input('radio-options-graph-mult-lines', 'value')
 )
 def change_view(value):
     fig_moving_avg = plots.change_fig_moving(value)

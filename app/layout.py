@@ -84,7 +84,22 @@ layout = html.Div(children=[
         ),
         html.Div(children=[
             html.Div(children=[
-                dcc.Dropdown(['views', 'likes', 'comments'], value = 'views', id='list_means', className='dropdown'),
+                html.Div(children=[
+                    html.Div(children=[
+                        dcc.RadioItems(
+                            id='radio-options-graph-mult-lines',
+                            options=[
+                                {'label': ' Visualizações', 'value': 'views'},
+                                {'label': ' Curtidas', 'value': 'likes'},
+                                {'label': ' Comentários', 'value': 'comments'}
+                            ],
+                            value='views',
+                            style={'display': 'flex', 'flex-direction': 'row'}
+                        )
+                    ], style={'margin-top': '20px'}),
+                ], 
+                className='gri_flex grid_flex_row'
+                ),
                 dcc.Graph(id="graph_mult_lines", figure=plots.fig_moving_avg, )
             ],
             style={"flex": "1", "padding": "10px"}
