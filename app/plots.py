@@ -59,7 +59,7 @@ fig_bar_all.update_layout(
     plot_bgcolor='#1e1e2f', 
 )
 def change_fig_bar_all(column):
-    fig_moving_avg.data[-1].x = df_mean[column]
+    fig_moving_avg.data[-1].x = df_mean[column].sort_values(by=column)
     return fig_moving_avg
 
 
