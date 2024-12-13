@@ -6,7 +6,7 @@ layout = html.Div(children=[
         html.Header(children='Highlights da Temporada de Fórmula 1 - 2024', className='title title_border_bottom'),
         html.Button('Atualizar', id='update_infos', className='btn'),
         ], 
-        className='grid_flex grid_flex_row'
+        className='grid_flex grid_flex_row height-8vh'
     ),
     html.Div(children=[
         html.Div(children=[
@@ -28,7 +28,7 @@ layout = html.Div(children=[
                 className="radio-container"
                 ),
             ],
-            className='grid_flex grid_flex_row'
+            className='grid_flex grid_flex_row height-8vh'
             ),
             html.Div(children=[
                 html.H3(children="vizualizações", className=' title kpis_titles'),
@@ -60,10 +60,10 @@ layout = html.Div(children=[
                 }
             ),
             html.Div(children=[
-                html.H1(children='carro'),
                 dcc.Graph(id='graph-bar-all', figure=plots.fig_bar_all),
+                html.H1(children='carro'),
             ],
-            className='.grid_flex grid_flex_row')
+            className='grid_flex grid_flex_row')
         ],
         className='grid-pane column_fifty_fifty'
         ),

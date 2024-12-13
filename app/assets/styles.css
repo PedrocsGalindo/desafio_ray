@@ -41,6 +41,8 @@ body {
 }
 .grid_flex_row{
     flex-direction: row;
+}
+.height-8vh{
     height: 8Vh;
 }
 .grid_flex_column{
