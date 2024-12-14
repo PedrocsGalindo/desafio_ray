@@ -59,7 +59,10 @@ fig_bar_all.update_layout(
     plot_bgcolor='#1e1e2f', 
 )
 def change_fig_bar_all(column):
-    fig_bar_all.data[-1].x = df[column].sort_values()
+    df_aux = df[[column, 'places']]
+    df_aux = df_aux.sort_values(by=column, ascending=True)
+    fig_bar_all.data[-1].x = df_aux[column]
+    fig_bar_all.data[-1].y = df_aux['places']
     return fig_bar_all
 #endregion
 
