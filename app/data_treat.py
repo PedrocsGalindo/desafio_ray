@@ -52,10 +52,18 @@ def treat_df(df):
     return df
 
 def to_seconds(string):
-    if "M" in string:
+    
+    if "H" in string:
+        hours = string.split("H")[0].replace("PT", "")
+        horasMinutos = string.split("H")[1]
+        minutes =  horasMinutos.split("M")[0].replace("PT", "")
+        seconds = horasMinutos.split("M")[1].replace("S", "")
+    elif "M" in string:
+        hours = 0
         minutes = string.split("M")[0].replace("PT", "")
         seconds = string.split("M")[1].replace("S", "")
     else:
+        hours = 0
         mintuos = 0
         seconds = string.replace("PT", "").replace("S", "")
-    return int(minutes) * 60 + int(seconds)
+    return int(hours) * 3600 + int(minutes) * 60 + int(seconds)
